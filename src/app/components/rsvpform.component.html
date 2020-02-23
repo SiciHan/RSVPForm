@@ -1,0 +1,15 @@
+<div>
+<h1>{{title}}</h1>
+<form #rsvpForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    Name : <input type="text" id="name" name="name" #name="ngModel" [(ngModel)]="model.name" placeholder="Please Enter Your Name"/> <br>
+    Email : <input type="text" id="email" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Please Enter Your Email"/> <br>
+    Phone : <input type="text" id="phone" name="phone" #phone="ngModel" [(ngModel)]="model.phone" placeholder="Please Enter Your Phone Number"/> <br>
+    Attending: <select id="isAttending" name="isAttending" #isAttending="ngModel" [(ngModel)]="model.isAttending">
+        <option *ngFor="let isAttending of attendance" [ngValue]="isAttending.value">{{isAttending.label}}</option>
+        </select>
+        <br>
+    <button type="submit" [disabled]="rsvpForm.invalid">Send</button>
+</form>
+</div>
+
+
